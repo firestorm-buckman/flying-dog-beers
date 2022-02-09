@@ -1,3 +1,7 @@
+#Installing specific packages.
+!pip install -q dash==1.19.0
+!pip install -q jupyter_dash==0.3.0
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -56,10 +60,30 @@ app.title=tabtitle
 ########### Set up the layout
 app.layout = html.Div(children=[
     html.H1(myheading),
-    dcc.Graph(
-        id='flyingdog',
-        figure=beer_fig
-    ),
+        dcc.Graph(
+            figure={
+                "data": [
+                    {
+                        "x": [1, 2, 3],
+                        "y": [2, 3, 4],
+                        "type": "lines",
+                    },
+                ],
+                "layout": {"title": "Average Price of Avocados"},
+            },
+        ),
+        dcc.Graph(
+            figure={
+                "data": [
+                    {
+                        "x": [1, 2, 3],
+                        "y": [1, 3, 5],
+                        "type": "lines",
+                    },
+                ],
+                "layout": {"title": "Avocados Sold"},
+            },
+        ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A('Data Source', href=sourceurl),
