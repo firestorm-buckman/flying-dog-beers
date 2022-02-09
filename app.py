@@ -2,13 +2,13 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
-
 from jupyter_dash import JupyterDash
 import plotly.express as px
 from dash.dependencies import Input, Output, State# Load Data
 from dash.exceptions import PreventUpdate
-
 import dash_table
+import pandas as pd
+import numpy as np
 
 ########### Define your variables
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
