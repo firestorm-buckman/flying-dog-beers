@@ -56,7 +56,7 @@ app.title=tabtitle
 ########### Set up the layout
 df = px.data.tips()# Build App
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 #app = dcc.Dash(__name__)
 app.title = "Avocado Analytics: Understand Your Avocados!"
 
@@ -95,8 +95,8 @@ app.layout =  html.Div(
     ]
 )
 
-app.css.config.serve_locally = True
-app.scripts.config.serve_locally = True
+#app.css.config.serve_locally = True
+#app.scripts.config.serve_locally = True
 
 if __name__ == '__main__':
     app.run_server()
