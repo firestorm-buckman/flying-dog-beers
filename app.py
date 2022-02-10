@@ -52,12 +52,8 @@ app.layout =  html.Div(style={'backgroundColor':'#7FDBFF', 'columnCount': 1},
                                           #Temperature
                                           html.Label('Temperature (C)'),
                                           html.Div(className='gap'),
-                                 
                                           dcc.Input(id='T',value=25.0),
-                                          html.Button('Submit', id='button'),
-                                          html.Br(),
-                                          html.Div(id='output-container-button', children='Enter a value and press submit'),
- 
+                                 
                                           #CoC
                                           html.Label('Cycles of Concentration'),
                                           html.Div(className='gap'),  
@@ -110,6 +106,19 @@ app.layout =  html.Div(style={'backgroundColor':'#7FDBFF', 'columnCount': 1},
 
                                           html.Div(className='gap'), 
                                           html.Br(),
+                                 
+                                          #Plotting Choice
+                                          html.Label(["Plotting Choice",
+                                                      dcc.Dropdown(id='forplots', style={'marginBottom': '1.5em','width': '50%'}, 
+                                                                   clearable=False, value=2, 
+                                                                   options=[{'label': 'CoC Plots', 'value': 2},
+                                                                            {'label': 'Alkalinity Plots', 'value': 3},  
+                                                                            {'label': 'Temperature Plots', 'value': 4}])
+                                                      ]),  
+
+                                          html.Button('Submit', id='button'),
+                                          html.Br(),
+                                          html.Div(id='output-container-button', children='Enter a value and press submit')
                                     ])
 
 if __name__ == '__main__':
