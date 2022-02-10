@@ -1,18 +1,7 @@
-#Installing specific packages.
-!pip install -q dash==1.19.0
-!pip install -q jupyter_dash==0.3.0
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
-from jupyter_dash import JupyterDash
-import plotly.express as px
-from dash.dependencies import Input, Output, State# Load Data
-from dash.exceptions import PreventUpdate
-import dash_table
-import pandas as pd
-import numpy as np
 
 ########### Define your variables
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
@@ -29,7 +18,26 @@ githublink='https://github.com/austinlasseter/flying-dog-beers'
 sourceurl='https://www.flyingdog.com/beers/'
 
 ########### Set up the chart
+bitterness = go.Bar(
+    x=beers,
+    y=ibu_values,
+    name=label1,
+    marker={'color':color1}
+)
+alcohol = go.Bar(
+    x=beers,
+    y=abv_values,
+    name=label2,
+    marker={'color':color2}
+)
 
+beer_data = [bitterness, alcohol]
+beer_layout = go.Layout(
+    barmode='group',
+    title = mytitle
+)
+
+beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
 
 ########### Initiate the app
@@ -41,30 +49,10 @@ app.title=tabtitle
 ########### Set up the layout
 app.layout = html.Div(children=[
     html.H1(myheading),
-        dcc.Graph(
-            figure={
-                "data": [
-                    {
-                        "x": [1, 2, 3],
-                        "y": [2, 3, 4],
-                        "type": "lines",
-                    },
-                ],
-                "layout": {"title": "Average Price of Avocados"},
-            },
-        ),
-        dcc.Graph(
-            figure={
-                "data": [
-                    {
-                        "x": [1, 2, 3],
-                        "y": [1, 3, 5],
-                        "type": "lines",
-                    },
-                ],
-                "layout": {"title": "Avocados Sold"},
-            },
-        ),
+    dcc.Graph(
+        id='flyingdog',
+        figure=beer_fig
+    ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A('Data Source', href=sourceurl),
