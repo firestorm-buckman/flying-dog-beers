@@ -47,17 +47,17 @@ server = app.server
 app.title=tabtitle
 
 ########### Set up the layout
-app.layout = html.Div(children=[
-    html.H1(myheading),
-    dcc.Graph(
-        id='flyingdog',
-        figure=beer_fig
-    ),
-    html.A('Code on Github', href=githublink),
-    html.Br(),
-    html.A('Data Source', href=sourceurl),
-    ]
-)
+app.layout =  html.Div(style={'backgroundColor':'#7FDBFF', 'columnCount': 1}, 
+                       children=[html.Div(),                                     
+                                          #Temperature
+                                          html.Label('Temperature (C)'),
+                                          html.Div(className='gap'),
+                                 
+                                          dcc.Input(id='T',value=25.0),
+                                          html.Button('Submit', id='button'),
+                                          html.Br(),
+                                          html.Div(id='output-container-button', children='Enter a value and press submit')
+                                    ])
 
 if __name__ == '__main__':
     app.run_server()
