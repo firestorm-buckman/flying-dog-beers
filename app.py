@@ -56,7 +56,60 @@ app.layout =  html.Div(style={'backgroundColor':'#7FDBFF', 'columnCount': 1},
                                           dcc.Input(id='T',value=25.0),
                                           html.Button('Submit', id='button'),
                                           html.Br(),
-                                          html.Div(id='output-container-button', children='Enter a value and press submit')
+                                          html.Div(id='output-container-button', children='Enter a value and press submit'),
+ 
+                                          #CoC
+                                          html.Label('Cycles of Concentration'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='CoC',value=1),
+
+                                          #Malk
+                                          html.Label('M Alkalinity (mg/l as CaCO3)'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='Malk',value=30),  
+                                          html.Div(className='gap'),
+                                          html.Br(),   
+                                          
+                                          #Ca
+                                          html.Label('Ca ion'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='Ca',value=10),
+
+                                          #Mg
+                                          html.Label('Mg ion'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='Mg',value=0),
+
+                                          #Zn
+                                          html.Label('Zn ion'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='Zn',value=0),
+
+                                          #Na
+                                          html.Label('Na ion'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='Na',value=0),
+
+                                          html.Div(className='gap'), 
+                                          html.Br(),
+
+                                          #Cl
+                                          html.Label('Cl ion'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='Cl',value=0),
+
+                                          #SO4
+                                          html.Label('SO4 ion'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='SO4',value=5),
+
+                                          #PO4
+                                          html.Label('PO4 ion'),
+                                          html.Div(className='gap'),  
+                                          dcc.Input(id='PO4',value=1),
+
+                                          html.Div(className='gap'), 
+                                          html.Br(),
                                     ])
 
 if __name__ == '__main__':
