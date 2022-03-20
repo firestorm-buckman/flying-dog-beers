@@ -1,4 +1,4 @@
-name: apollo
+name: app
 channels:
   - defaults
   - anaconda
